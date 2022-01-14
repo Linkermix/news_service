@@ -26,7 +26,6 @@ public class TypeNewsServiceImpl implements TypeNewsService {
     @Transactional
     public void saveTypeNews(TypeNews typeNews) {
         typeNewsDAO.saveTypeNews(typeNews);
-
     }
 
     @Override
@@ -39,6 +38,5 @@ public class TypeNewsServiceImpl implements TypeNewsService {
     @Transactional
     public void deleteTypeNews(long id) {
         typeNewsDAO.deleteTypeNews(id);
-
     }
 }

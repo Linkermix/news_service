@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 
 @Data
-public class AllNewsAllTypesDTO {
+public class AllNewsWithTypesDTO {
 
     private String newsName;
 

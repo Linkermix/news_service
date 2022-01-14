@@ -1,7 +1,7 @@
 package com.example.news_service.service;
 
 import com.example.news_service.dao.NewsDAO;
-import com.example.news_service.dto.AllNewsAllTypesDTO;
+import com.example.news_service.dto.AllNewsWithTypesDTO;
 import com.example.news_service.entity.News;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +41,11 @@ public class NewsServiceImpl implements NewsService {
         newsDAO.deleteNews(id);
     }
 
+    @Override
     @Transactional
-    public List<AllNewsAllTypesDTO> getAllNewsAndTypes() {
-        return newsDAO.getAllNewsAndTypes();
+    public List<AllNewsWithTypesDTO> getAllNewsWithTypes() {
+        return newsDAO.getAllNewsWithTypes();
     }
+
 
 }

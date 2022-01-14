@@ -1,5 +1,6 @@
 package com.example.news_service.controller;
 
+import com.example.news_service.dto.AllNewsWithTypesDTO;
 import com.example.news_service.entity.News;
 import com.example.news_service.exception_handling.NoSuchElementException;
 import com.example.news_service.service.NewsService;
@@ -43,9 +44,16 @@ public class NewsRESTController {
         newsService.deleteNews(id);
         return "News with ID = " + id + " was deleted";
     }
+
     @PutMapping("/news")
     public News updateNews(@RequestBody News news) {
         newsService.saveNews(news);
         return news;
+    }
+
+    @GetMapping("/newstypes")
+    public List<AllNewsWithTypesDTO> showAllNewsWithTypes() {
+        List<AllNewsWithTypesDTO> newsWithTypes = newsService.getAllNewsWithTypes();
+        return newsWithTypes;
     }
 }
