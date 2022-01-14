@@ -1,5 +1,6 @@
 package com.example.news_service.dao;
 
+import com.example.news_service.dto.AllNewsAllTypesDTO;
 import com.example.news_service.entity.News;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class NewsDAOImpl implements NewsDAO {
 
     @Override
     public List<News> getAllNews() {
-        Query query = entityManager.createQuery("from New");
+        Query query = entityManager.createQuery("from News");
         List<News> allNews = query.getResultList();
         return allNews;
     }
@@ -39,5 +40,12 @@ public class NewsDAOImpl implements NewsDAO {
         Query query = entityManager.createQuery("delete from News where id =:NewsId");
         query.setParameter("NewsId",id);
         query.executeUpdate();
+    }
+
+    @Override
+    public List<AllNewsAllTypesDTO> getAllNewsAndTypes() {
+        Query query = entityManager.createQuery("from News");
+        List<AllNewsAllTypesDTO> allNewsAllTypes = query.getResultList();
+        return allNewsAllTypes;
     }
 }

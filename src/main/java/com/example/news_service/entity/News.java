@@ -23,8 +23,11 @@ public class News {
     @Column(name = "full_desc")
     private String fullDesc;
 
-    @OneToMany
-    @Column(name = "type_id")
-    private long typeId;
+//    @Column(name = "type_id")
+//    private String typeId;
+
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "type_id")
+    private TypeNews typeNews;
 
 }

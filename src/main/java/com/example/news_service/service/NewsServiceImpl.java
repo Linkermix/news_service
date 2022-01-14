@@ -1,9 +1,8 @@
 package com.example.news_service.service;
 
 import com.example.news_service.dao.NewsDAO;
-import com.example.news_service.dao.TypeNewsDAO;
+import com.example.news_service.dto.AllNewsAllTypesDTO;
 import com.example.news_service.entity.News;
-import com.example.news_service.entity.TypeNews;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +27,6 @@ public class NewsServiceImpl implements NewsService {
     @Transactional
     public void saveNews(News news) {
         newsDAO.saveNews(news);
-
     }
 
     @Override
@@ -41,6 +39,11 @@ public class NewsServiceImpl implements NewsService {
     @Transactional
     public void deleteNews(long id) {
         newsDAO.deleteNews(id);
-
     }
+
+    @Transactional
+    public List<AllNewsAllTypesDTO> getAllNewsAndTypes() {
+        return newsDAO.getAllNewsAndTypes();
+    }
+
 }
